@@ -10,11 +10,17 @@
 
 {% block content %}
 <p>[<a href="{% url keyedcache_view %}">{% trans "View Cache" %}</a>] [<a href="{% url keyedcache_delete %}">{% trans "Delete from Cache" %}</a>]
-<h1>{% trans "Cache Stats" %}</h1>
-<p>Backend: {{ cache_backend }} ({% if cache_running %}running{% else %}down{% endif %})</p>
+<div id="content-related">
+    <div class="module" id="sites-module">
+        <h2 class="module-title">{% trans "Cache Stats" %}</h2>
+            <div class="module-content">
+                <p>Backend: {{ cache_backend }} ({% if cache_running %}running{% else %}down{% endif %})</p>
 <p>Timeout: {{ cache_time }}</p>
 <p>Keys in cache: {{ cache_count }}</p>
 <p>Cache Calls: {{ cache_calls }}</p>
 <p>Cache Hits: {{ cache_hits }}</p>
 <p>Cache Hit Rate: {{ hit_rate }}%</p>
+            </div>
+    </div>
+</div>
 {% endblock %}
